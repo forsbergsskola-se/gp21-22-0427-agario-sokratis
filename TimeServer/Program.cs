@@ -11,9 +11,8 @@ namespace TimeServer
             var endPoint = new IPEndPoint(IPAddress.Loopback, 44444);
             var tcpListener = new TcpListener(endPoint);
             
-            Console.WriteLine("Starting...");
-            
             tcpListener.Start();
+            Console.WriteLine("Start Listener");
             
             while (true)
             {
@@ -24,7 +23,7 @@ namespace TimeServer
         }
         
         private static byte[] GetGreetingMessage() 
-            => Encoding.ASCII.GetBytes("Hi, this is Sokratis Server. The Current time is: " + DateTime.Now);
+            => Encoding.ASCII.GetBytes("The Current time is: " + DateTime.Now);
     }
 }
 
