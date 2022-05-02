@@ -9,24 +9,22 @@ namespace TimeServer
         public static void Main()
         {
             var endPoint = new IPEndPoint(IPAddress.Loopback, 44444);
-            var tcpListner = new TcpListener(endPoint);
+            var tcpListener = new TcpListener(endPoint);
             
             Console.WriteLine("Starting...");
             
-            tcpListner.Start();
+            tcpListener.Start();
             
             while (true)
             {
-                byte[] buffer = new byte[100];
-                
-                var tcpClient = tcpListner.AcceptTcpClient();
-                tcpClient.GetStream().Read(buffer, 0, 100);
-                
-                Console.WriteLine(Encoding.ASCII.GetString(buffer) + "The Current time is: " + DateTime.Now);
-                
+                var tcpClient = tcpListener.AcceptTcpClient();
+                tcpClient.GetStream().Write(GetGreetingMessage());
                 tcpClient.Close();
             }
         }
+        
+        private static byte[] GetGreetingMessage() 
+            => Encoding.ASCII.GetBytes("Hi, this is Sokratis Server. The Current time is: " + DateTime.Now);
     }
 }
 
