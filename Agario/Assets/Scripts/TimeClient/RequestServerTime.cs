@@ -3,7 +3,6 @@ using System.Net.Sockets;
 using System.Text;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace TimeClient
 {
