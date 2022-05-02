@@ -8,8 +8,7 @@ namespace TimeServer
     {
         public static void Main()
         {
-            var endPoint = new IPEndPoint(IPAddress.Loopback, 44444);
-            var tcpListener = new TcpListener(endPoint);
+            var tcpListener = new TcpListener(IPAddress.Loopback, 44444);
             
             tcpListener.Start();
             Console.WriteLine("Start Listener");
