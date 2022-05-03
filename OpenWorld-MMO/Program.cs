@@ -17,15 +17,12 @@ namespace OpenWorld_MMO
                 var sender = new IPEndPoint(IPAddress.Any, 0);
                 var data = udpClient.Receive(ref sender);
                 
-                new Thread(() => 
-                {
-                    Console.WriteLine($"Message receiver from{sender}: ");
-                    Console.WriteLine(Encoding.ASCII.GetString(data, 0, data.Length));
+                Console.WriteLine($"Message receiver from {sender}: ");
+                Console.WriteLine(Encoding.ASCII.GetString(data, 0, data.Length));
 
-                    string message = $"{sender}, I've got your message!";
-                    data = Encoding.ASCII.GetBytes(message);
-                    udpClient.Send(data, data.Length, sender); 
-                }).Start();
+                string message = $"{sender}, I've got your message!";
+                data = Encoding.ASCII.GetBytes(message);
+                udpClient.Send(data, data.Length, sender); 
             }
         }
     }    
