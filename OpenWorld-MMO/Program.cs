@@ -10,18 +10,23 @@ namespace OpenWorld_MMO
         {
             var ipEndPoint = new IPEndPoint(IPAddress.Any, 44444);
             var udpClient = new UdpClient(ipEndPoint);
-            
-            Console.WriteLine("Waiting client...");
+            Console.WriteLine("Server has started");
 
-            var sender = new IPEndPoint(IPAddress.Any, 0);
-            var data = udpClient.Receive(ref sender);
-            
-            Console.WriteLine($"Message receiver from{sender}: ");
-            Console.WriteLine(Encoding.ASCII.GetString(data, 0, data.Length));
+            while (true)
+            {
+                var sender = new IPEndPoint(IPAddress.Any, 0);
+                var data = udpClient.Receive(ref sender);
+                
+                new Thread(() => 
+                {
+                    Console.WriteLine($"Message receiver from{sender}: ");
+                    Console.WriteLine(Encoding.ASCII.GetString(data, 0, data.Length));
 
-            string message = "Welcome to my server";
-            data = Encoding.ASCII.GetBytes(message);
-            udpClient.Send(data, data.Length, sender);
+                    string message = $"{sender}, I've got your message!";
+                    data = Encoding.ASCII.GetBytes(message);
+                    udpClient.Send(data, data.Length, sender); 
+                }).Start();
+            }
         }
     }    
 };
