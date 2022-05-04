@@ -40,7 +40,9 @@ namespace OpenWorld_MMO
             
             for (int i = 0; i < temp.Length; i++)
             {
-                if(temp[i].CompareTo(whiteSpace) == 0 || temp[i].CompareTo(backSlash) == 0) break;
+                if(temp[i].CompareTo(whiteSpace) == 0 ||
+                   temp[i].CompareTo(backSlash) == 0) break;
+                
                 result += temp[i];
             }
             
@@ -54,16 +56,10 @@ namespace OpenWorld_MMO
         /// <returns>Byte[]</returns>
         private static byte[] ValidateWord(string word)
         {
-            byte[] result;
+            if (word.Length > 21)
+                return PreparePackageToSend("Invalid word\n"); 
             
-            if (word.Length <= 21)
-            {
-                _phrase += word;
-                result = PreparePackageToSend(_phrase);
-            }
-            else result = PreparePackageToSend("Invalid word\n");
-
-            return result;
+            return PreparePackageToSend(_phrase += word);
         }
 
         /// <summary>
