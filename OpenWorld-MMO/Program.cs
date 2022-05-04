@@ -6,7 +6,7 @@ namespace OpenWorld_MMO
 {
     static class Program
     {
-        static string phrase = "";
+        static string _phrase = "";
         
         public static void Main()
         {
@@ -18,13 +18,19 @@ namespace OpenWorld_MMO
             {
                 var sender = new IPEndPoint(IPAddress.Any, 0);
                 var data = udpClient.Receive(ref sender);
+                
                 var word = FilterWord(data);
-
                 data = ValidateWord(word);
+                
                 udpClient.Send(data, data.Length, sender); 
             }
         }
 
+        /// <summary>
+        /// Discard everything from a whiteSpace or a break line
+        /// </summary>
+        /// <param name="data">byte[]</param>
+        /// <returns>String</returns>
         private static string FilterWord(byte[] data)
         {
             var temp = Encoding.ASCII.GetString(data, 0, data.Length);
@@ -38,23 +44,33 @@ namespace OpenWorld_MMO
                 result += temp[i];
             }
             
-            return " " + result;
+            return result + " ";
         }
-
+        
+        /// <summary>
+        /// Check if a word has less than 20 characters 
+        /// </summary>
+        /// <param name="word">String</param>
+        /// <returns>Byte[]</returns>
         private static byte[] ValidateWord(string word)
         {
             byte[] result;
             
             if (word.Length <= 21)
             {
-                phrase += word;
-                result = PreparePackageToSend(phrase);
+                _phrase += word;
+                result = PreparePackageToSend(_phrase);
             }
             else result = PreparePackageToSend("Invalid word\n");
 
             return result;
         }
 
+        /// <summary>
+        /// Convert a string to Byte[]
+        /// </summary>
+        /// <param name="quote">String</param>
+        /// <returns>Byte[]</returns>
         private static byte[] PreparePackageToSend(string quote) => Encoding.ASCII.GetBytes(quote + '\n');
     }    
 };
