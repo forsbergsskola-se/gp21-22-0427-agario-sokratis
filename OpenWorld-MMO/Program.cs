@@ -18,7 +18,7 @@ namespace OpenWorld_MMO
             {
                 var sender = new IPEndPoint(IPAddress.Any, 0);
                 var data = udpClient.Receive(ref sender);
-                Console.WriteLine(udpClient.ToString() + "connected");
+                Console.WriteLine(udpClient + " connected");
                 
                 var word = FilterWord(data);
                 data = ValidateWord(word);
