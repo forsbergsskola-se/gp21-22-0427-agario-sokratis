@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Agario
 {
@@ -19,10 +17,10 @@ namespace Agario
         private void FixedUpdate() => localPlayer.velocity = SetVelocity();
        
         private Vector2 SetVelocity() 
-            => new (SetMovement(right, left),
-                    SetMovement(up, down));
+            => new (SetAxisOutput(right, left),
+                    SetAxisOutput(up, down));
         
-        private float SetMovement(char positiveInput, char negativeInput)
+        private float SetAxisOutput(char positiveInput, char negativeInput)
         {
             if (Input.GetKey((KeyCode) positiveInput)) return playerStats.Speed;
             if (Input.GetKey((KeyCode) negativeInput)) return -playerStats.Speed;
