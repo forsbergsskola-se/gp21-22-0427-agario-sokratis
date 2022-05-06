@@ -1,33 +1,32 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Agario
 {
     public class LocalController : MonoBehaviour
     {
         [Header("Dependencies")]
-        [SerializeField] private PlayerStats _playerStats;
-        [SerializeField] private Rigidbody2D _localPlayer;
+        [SerializeField] private PlayerStats playerStats;
+        [SerializeField] private Rigidbody2D localPlayer;
 
         [Header("Inputs")] 
-        [SerializeField] private char _up;
-        [SerializeField] private char _down;
-        [SerializeField] private char _left;
-        [SerializeField] private char _right;
+        [SerializeField] private char up;
+        [SerializeField] private char down;
+        [SerializeField] private char left;
+        [SerializeField] private char right;
 
-        private Vector2 _velocity;
+        private void FixedUpdate() => localPlayer.velocity = SetVelocity();
+       
+        private Vector2 SetVelocity() 
+            => new (SetMovement(right, left),
+                    SetMovement(up, down));
         
-        private void FixedUpdate()
+        private float SetMovement(char positiveInput, char negativeInput)
         {
-            if (Input.GetKey((KeyCode) _up)) _velocity.y = _playerStats.Speed;
-            else if (Input.GetKey((KeyCode) _down)) _velocity.y = -_playerStats.Speed;
-            else _velocity.y = 0;
-            
-            if (Input.GetKey((KeyCode) _left)) _velocity.x = -_playerStats.Speed;
-            else if (Input.GetKey((KeyCode) _right)) _velocity.x = _playerStats.Speed;
-            else _velocity.x = 0;
-
-            _localPlayer.velocity = _velocity;
+            if (Input.GetKey((KeyCode) positiveInput)) return playerStats.Speed;
+            if (Input.GetKey((KeyCode) negativeInput)) return -playerStats.Speed;
+            return 0;
         }
     }
 }

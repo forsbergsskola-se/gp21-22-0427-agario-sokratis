@@ -267,10 +267,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3874796700266142883, guid: 3c49bb56c158aea4a881877bc57efd8b, type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c49bb56c158aea4a881877bc57efd8b, type: 3}
 --- !u!1001 &8232097794019127881
@@ -329,23 +325,7 @@ PrefabInstance:
       value: Controllers
       objectReference: {fileID: 0}
     - target: {fileID: 8232097795397953879, guid: 1f351f01ed569d040903ef04acbeb6b7, type: 3}
-      propertyPath: _up
-      value: 119
-      objectReference: {fileID: 0}
-    - target: {fileID: 8232097795397953879, guid: 1f351f01ed569d040903ef04acbeb6b7, type: 3}
-      propertyPath: _down
-      value: 115
-      objectReference: {fileID: 0}
-    - target: {fileID: 8232097795397953879, guid: 1f351f01ed569d040903ef04acbeb6b7, type: 3}
-      propertyPath: _left
-      value: 97
-      objectReference: {fileID: 0}
-    - target: {fileID: 8232097795397953879, guid: 1f351f01ed569d040903ef04acbeb6b7, type: 3}
-      propertyPath: _right
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8232097795397953879, guid: 1f351f01ed569d040903ef04acbeb6b7, type: 3}
-      propertyPath: _localPlayer
+      propertyPath: localPlayer
       value: 
       objectReference: {fileID: 1855279267}
     m_RemovedComponents: []

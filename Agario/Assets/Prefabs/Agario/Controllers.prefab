@@ -44,5 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a809f12b7f87124b913a4d820608ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerStats: {fileID: 11400000, guid: 67060a28c7e6d8046bd5361ba44c76f6, type: 2}
-  _localPlayer: {fileID: 0}
+  playerStats: {fileID: 11400000, guid: 67060a28c7e6d8046bd5361ba44c76f6, type: 2}
+  localPlayer: {fileID: 0}
+  up: 119
+  down: 115
+  left: 97
+  right: 100
