@@ -18,6 +18,7 @@ namespace OpenWorld_MMO
             {
                 var sender = new IPEndPoint(IPAddress.Any, 0);
                 var data = udpClient.Receive(ref sender);
+                Console.WriteLine(udpClient.ToString() + "connected");
                 
                 var word = FilterWord(data);
                 data = ValidateWord(word);
@@ -34,14 +35,17 @@ namespace OpenWorld_MMO
         private static string FilterWord(byte[] data)
         {
             var temp = Encoding.ASCII.GetString(data, 0, data.Length);
+            Console.WriteLine("Word received: " + temp);
             char whiteSpace = ' ';
             char backSlash = '\n';
+            char questionMark = '?';
             string result = "";
             
             for (int i = 0; i < temp.Length; i++)
             {
                 if(temp[i].CompareTo(whiteSpace) == 0 ||
-                   temp[i].CompareTo(backSlash) == 0) break;
+                   temp[i].CompareTo(backSlash) == 0 ||
+                   temp[i].CompareTo(questionMark) == 0) break;
                 
                 result += temp[i];
             }
