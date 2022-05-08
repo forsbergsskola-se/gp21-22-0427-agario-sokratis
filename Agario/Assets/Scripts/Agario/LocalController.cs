@@ -8,7 +8,7 @@ namespace Agario
         [SerializeField] private PlayerStats playerStats;
         [SerializeField] private Rigidbody2D localPlayer;
 
-        [Header("Inputs")] 
+        [Header("Key Binding")] 
         [SerializeField] private char up;
         [SerializeField] private char down;
         [SerializeField] private char left;
