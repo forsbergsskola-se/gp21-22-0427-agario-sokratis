@@ -1,15 +1,14 @@
-using Agario.Interfaces;
 using UnityEngine;
 
 namespace Agario
 {
-    public class Scale 
+    public class Scale : MonoBehaviour
     {
-        private static Vector3 SetScaleMagnitude(int points, float sRate)
+        [SerializeField] private PlayerStats stats;
+        public void SetScale(int points)
         {
-            var scale = points * sRate;
-            return new Vector3(scale, scale, 0);
-        } 
-        
+            var scale = points * stats.ScaleRate;
+            transform.localScale += new Vector3(scale, scale, 0);
+        }
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3874796700266142884}
   - component: {fileID: 3874796700266142883}
   - component: {fileID: 606467691861420800}
+  - component: {fileID: 7753546901751257560}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -136,5 +137,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9bfc9caca8cd964386db5557725e883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 0}
-  points: {fileID: 0}
+  onScore:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7753546901751257560}
+        m_TargetAssemblyTypeName: Agario.Scale, Assembly-CSharp
+        m_MethodName: SetScale
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  intPoints: {fileID: 11400000, guid: 91d9dd8a99e642a4f94a07ab0aa685f4, type: 2}
+  stats: {fileID: 11400000, guid: 67060a28c7e6d8046bd5361ba44c76f6, type: 2}
+--- !u!114 &7753546901751257560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3874796700266142880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05018d4a3084a214e98274689cbdc7bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 67060a28c7e6d8046bd5361ba44c76f6, type: 2}
