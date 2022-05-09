@@ -6,7 +6,7 @@ namespace Agario.Events
     [CreateAssetMenu(menuName = "ScriptableObjects/Values/GameEvent", fileName = "NewEvent")]
     public class GameEvent : ScriptableObject
     {
-        private readonly List<GameEventListener> listeners = new List<GameEventListener>();
+        private readonly List<GameEventListener> listeners = new();
 
         public void Raise()
         {
