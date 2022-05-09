@@ -6,7 +6,7 @@ namespace Agario
     public class Scale : MonoBehaviour, IPoints
     {
         [SerializeField] private int startPoints = 2;
-        [SerializeField] private float scaleRate = 0.1f;
+        [SerializeField] private float scaleRate = 0.05f;
         
         public int Points { get; set; }
 
@@ -16,16 +16,25 @@ namespace Agario
         {
             var otherPoints = col.gameObject.GetComponent<IPoints>();
 
-            if (otherPoints != null && Points > otherPoints.Points)
+            if (Points > otherPoints?.Points)
             {
-                Points += otherPoints.Points;
-                var scale = otherPoints.Points * scaleRate;
-                transform.localScale += new Vector3(scaleRate , scaleRate , 0);
+                UpdatePoints(otherPoints);
+                UpdateScale();
             }
             else Destroy(gameObject);
             
             Debug.Log(Points);
         }
 
+        private void UpdatePoints(IPoints otherPoints) => Points += otherPoints.Points;
+        
+        private void UpdateScale() => transform.localScale += SetScaleMagnitude(Points, scaleRate);
+        
+        private Vector3 SetScaleMagnitude(int points, float sRate)
+        {
+            var scale = points * sRate;
+            return new Vector3(scale, scale, 0);
+        } 
+        
     }
 }
