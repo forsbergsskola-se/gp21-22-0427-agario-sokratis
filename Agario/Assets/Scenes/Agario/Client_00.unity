@@ -445,6 +445,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 606467691861420800, guid: 3c49bb56c158aea4a881877bc57efd8b, type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 11400000, guid: 67060a28c7e6d8046bd5361ba44c76f6, type: 2}
+    - target: {fileID: 606467691861420800, guid: 3c49bb56c158aea4a881877bc57efd8b, type: 3}
+      propertyPath: intPoints
+      value: 
+      objectReference: {fileID: 11400000, guid: 91d9dd8a99e642a4f94a07ab0aa685f4, type: 2}
     - target: {fileID: 3874796700266142880, guid: 3c49bb56c158aea4a881877bc57efd8b, type: 3}
       propertyPath: m_Name
       value: LocalPlayer
@@ -493,8 +501,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8743426094285173417, guid: 3c49bb56c158aea4a881877bc57efd8b, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c49bb56c158aea4a881877bc57efd8b, type: 3}
 --- !u!1001 &7905653700276444930
 PrefabInstance:

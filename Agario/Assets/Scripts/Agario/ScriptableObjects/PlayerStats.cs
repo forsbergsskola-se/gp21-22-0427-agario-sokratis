@@ -15,8 +15,6 @@ namespace Agario
 
         public float Speed => speed;
         public float ScaleRate => scaleRate;
-        public int Points { get; set; }
-
-        private void OnEnable() => Points = startPoints;
+        public int StartPoints => startPoints;
     }
 }
