@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Agario
 {
-    public class Score : MonoBehaviour, IPoints
+    public class Scale : MonoBehaviour, IPoints
     {
         [SerializeField] private int startPoints = 2;
         [SerializeField] private float scaleRate = 0.1f;
