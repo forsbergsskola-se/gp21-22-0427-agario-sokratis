@@ -1,5 +1,3 @@
-using Agario.Interfaces;
-using Agario.ScriptableObjects;
 using UnityEngine;
 
 namespace Agario.GamePlay
