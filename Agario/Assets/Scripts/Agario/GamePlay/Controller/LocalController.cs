@@ -1,7 +1,7 @@
 using Agario.ScriptableObjects;
 using UnityEngine;
 
-namespace Agario
+namespace Agario.GamePlay.Controller
 {
     public class LocalController : MonoBehaviour
     {
