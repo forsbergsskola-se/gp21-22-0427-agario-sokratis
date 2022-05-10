@@ -1,3 +1,4 @@
+using Agario.ScriptableObjects;
 using UnityEngine;
 
 namespace Agario
@@ -6,6 +7,7 @@ namespace Agario
     {
         [Header("Dependencies")]
         [SerializeField] private PlayerStats playerStats;
+        [SerializeField] private IntValue localScore;
         [SerializeField] private Rigidbody2D localPlayer;
 
         [Header("Key Binding")] 
@@ -14,9 +16,14 @@ namespace Agario
         [SerializeField] private char left;
         [SerializeField] private char right;
 
+        [Header("Speed")] 
+        [SerializeField] private float speedScale;
+
         private void FixedUpdate() => localPlayer.velocity = SetVelocity();
-       
-        private Vector2 SetVelocity() 
+
+        private Vector2 SetVelocity() => SetVelocityVector() / SetVelocityDivisor();
+        
+        private Vector2 SetVelocityVector() 
             => new (SetAxisOutput(right, left),
                     SetAxisOutput(up, down));
         
@@ -26,5 +33,7 @@ namespace Agario
             if (Input.GetKey((KeyCode) negativeInput)) return -playerStats.Speed;
             return 0;
         }
+
+        private float SetVelocityDivisor() => localScore.Value * speedScale;
     }
 }

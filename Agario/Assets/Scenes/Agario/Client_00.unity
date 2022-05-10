@@ -616,6 +616,14 @@ PrefabInstance:
       value: Controllers
       objectReference: {fileID: 0}
     - target: {fileID: 8232097795397953879, guid: 1f351f01ed569d040903ef04acbeb6b7, type: 3}
+      propertyPath: localScore
+      value: 
+      objectReference: {fileID: 11400000, guid: 91d9dd8a99e642a4f94a07ab0aa685f4, type: 2}
+    - target: {fileID: 8232097795397953879, guid: 1f351f01ed569d040903ef04acbeb6b7, type: 3}
+      propertyPath: speedScale
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232097795397953879, guid: 1f351f01ed569d040903ef04acbeb6b7, type: 3}
       propertyPath: localPlayer
       value: 
       objectReference: {fileID: 1855279267}
