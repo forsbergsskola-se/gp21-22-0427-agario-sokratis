@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -12,14 +13,15 @@ namespace Agario.Network
         [Header("Network")] 
         [SerializeField] private string ipAddress;
         [SerializeField] private int port;
+        [SerializeField] private float waitTime;
         
         [Header("Data to send")]
         [SerializeField] private Transform localPlayer;
         [SerializeField] private IntValue localScore;
 
-        private void FixedUpdate() => ConnectToServer();
-
-        private void ConnectToServer()
+        private void Start() => StartCoroutine(ConnectToServer());
+        
+        private IEnumerator ConnectToServer()
         {
             var endPoint = new IPEndPoint(IPAddress.Parse(ipAddress), port);
             var client = new UdpClient();
@@ -27,6 +29,10 @@ namespace Agario.Network
 
             var data = Encoding.ASCII.GetBytes($"{Time.time}");
             client.Send(data, data.Length);
+            Debug.Log("Message sent: " + Encoding.ASCII.GetString(data));
+            
+            yield return new WaitForSeconds(waitTime);
+            StartCoroutine(ConnectToServer());
         }        
     }
 }

@@ -1865,6 +1865,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1965469266906014611, guid: 5aa7a6635c45bf04db3054d3b0d6cfef, type: 3}
+      propertyPath: waitTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965469266906014611, guid: 5aa7a6635c45bf04db3054d3b0d6cfef, type: 3}
       propertyPath: localScore
       value: 
       objectReference: {fileID: 11400000, guid: 91d9dd8a99e642a4f94a07ab0aa685f4, type: 2}
