@@ -1,0 +1,7 @@
+C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\bin\Debug\AgarioServer.exe
+C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\bin\Debug\AgarioServer.pdb
+C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\obj\Debug\AgarioServer.csproj.AssemblyReference.cache
+C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\obj\Debug\AgarioServer.csproj.SuggestedBindingRedirects.cache
+C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\obj\Debug\AgarioServer.csproj.CoreCompileInputs.cache
+C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\obj\Debug\AgarioServer.exe
+C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\obj\Debug\AgarioServer.pdb
