@@ -27,7 +27,7 @@ namespace Agario.GamePlay
                 Points += otherPoints;
                 onScore.Invoke(otherPoints);
             }
-            else if(Points < otherPoints) Destroy(gameObject);
+            else if(Points < otherPoints) gameObject.SetActive(false);
         }
     }
 }

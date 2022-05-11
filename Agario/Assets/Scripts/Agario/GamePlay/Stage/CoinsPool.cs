@@ -29,6 +29,7 @@ namespace Agario.GamePlay.Stage
         private IEnumerator SpawnCoin()
         {
             var item = pool.Dequeue();
+            item.SetActive(true);
             item.transform.position = SetRandomPosition(stageSize.Value);
             pool.Enqueue(item);
             
@@ -40,9 +41,10 @@ namespace Agario.GamePlay.Stage
         {
             for (int i = 0; i < size; i++)
             {
+                var temp = Instantiate(coin);
+                temp.SetActive(false);
                 pool.Enqueue(Instantiate(coin)); 
             }
-            Debug.Log(pool.Count);
         }
         
         private Vector3 SetRandomPosition(int threshold) 
