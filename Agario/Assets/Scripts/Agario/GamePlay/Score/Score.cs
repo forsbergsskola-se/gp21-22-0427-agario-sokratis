@@ -1,15 +1,11 @@
 using Agario.Interfaces;
 using Agario.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.Events;
 
-namespace Agario.GamePlay
+namespace Agario.GamePlay.Score
 {
     public class Score : MonoBehaviour, IPoints
     {
-        [Header("Events")] 
-        [SerializeField] private UnityEvent<int> onScore;
-        
         [Header("Dependencies")]
         [SerializeField] private IntValue intPoints;
         
@@ -19,16 +15,6 @@ namespace Agario.GamePlay
             set => intPoints.Value = value;
         }
 
-        private void OnCollisionEnter2D(Collision2D col)
-        {
-            var otherPoints = col.gameObject.GetComponent<IPoints>().Points;
-            if (Points > otherPoints)
-            {
-                Points += otherPoints;
-                onScore.Invoke(otherPoints);
-            }
-            else if(Points < otherPoints) gameObject.SetActive(false);
-        }
     }
 }
 

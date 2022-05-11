@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Agario
@@ -6,9 +7,13 @@ namespace Agario
     {
         [SerializeField] private PlayerStats stats;
         
-        public void SetScale(int points) 
-            => transform.localScale += new Vector3(SetScaleUnit(points), SetScaleUnit(points), 0);
+        public void SetScale(int point) 
+            => transform.localScale += SetScaleVector(point);
+       
+        public Vector3 SetScaleVector(int point) 
+            => new (SetScaleUnit(point), SetScaleUnit(point), 1);
         
-        private float SetScaleUnit(int points) => points * stats.ScaleRate;
+        private float SetScaleUnit(int point) 
+            => point * stats.ScaleRate;
     }
 }

@@ -1,5 +1,6 @@
 using Agario.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
 namespace Agario.GamePlay.Controller
@@ -17,17 +18,14 @@ namespace Agario.GamePlay.Controller
         [SerializeField] private char down;
         [SerializeField] private char left;
         [SerializeField] private char right;
-
-        [Header("Speed")] 
-        [SerializeField] private float speedScale;
-
+       
         private void FixedUpdate()
         {
-            localPlayer.velocity = SetVelocity(); 
+            localPlayer.velocity = SetVelocity();
             localPlayer.transform.position = ClampPosition(localPlayer.transform.position, stageSize.Value);
-        } 
+        }
 
-        private Vector2 SetVelocity() => SetVelocityVector() / SetVelocityDivisor();
+        private Vector2 SetVelocity() => SetVelocityVector();
         
         private Vector2 SetVelocityVector() 
             => new (SetAxisOutput(right, left),
@@ -39,8 +37,6 @@ namespace Agario.GamePlay.Controller
             if (Input.GetKey((KeyCode) negativeInput)) return -playerStats.Speed;
             return 0;
         }
-
-        private float SetVelocityDivisor() => localScore.Value * speedScale;
 
         private Vector3 ClampPosition(Vector3 position, int threshold)
             => new (Clamp(position.x, threshold), 

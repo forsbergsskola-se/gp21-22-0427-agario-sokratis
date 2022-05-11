@@ -41,9 +41,9 @@ namespace Agario.GamePlay.Stage
         {
             for (int i = 0; i < size; i++)
             {
-                var temp = Instantiate(coin);
+                var temp = Instantiate(coin, this.transform);
                 temp.SetActive(false);
-                pool.Enqueue(Instantiate(coin)); 
+                pool.Enqueue(temp); 
             }
         }
         

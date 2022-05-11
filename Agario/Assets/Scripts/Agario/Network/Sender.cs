@@ -28,7 +28,7 @@ namespace Agario.Network
 
             var data = Encoding.ASCII.GetBytes($"{Time.time}");
             client.Send(data, data.Length);
-            Debug.Log("Message sent: " + Encoding.ASCII.GetString(data));
+            //Debug.Log("Message sent: " + Encoding.ASCII.GetString(data));
             
             yield return new WaitForSeconds(waitTime);
             StartCoroutine(ConnectToServer());

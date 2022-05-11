@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coin: {fileID: 3208486536173234116, guid: 4967666d8b1b25347b134d5a96684aa4, type: 3}
-  size: 150
+  size: 100
   timer: 0.5
   stageSize: {fileID: 11400000, guid: 4114a8b5831f46e4e833a06482286a52, type: 2}
