@@ -1,5 +1,6 @@
 using Agario.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Agario.GamePlay.Controller
 {
@@ -9,6 +10,7 @@ namespace Agario.GamePlay.Controller
         [SerializeField] private PlayerStats playerStats;
         [SerializeField] private IntValue localScore;
         [SerializeField] private Rigidbody2D localPlayer;
+        [SerializeField] private IntValue stageSize;
 
         [Header("Key Binding")] 
         [SerializeField] private char up;
@@ -19,7 +21,11 @@ namespace Agario.GamePlay.Controller
         [Header("Speed")] 
         [SerializeField] private float speedScale;
 
-        private void FixedUpdate() => localPlayer.velocity = SetVelocity();
+        private void FixedUpdate()
+        {
+            localPlayer.velocity = SetVelocity(); 
+            localPlayer.transform.position = ClampPosition(localPlayer.transform.position, stageSize.Value);
+        } 
 
         private Vector2 SetVelocity() => SetVelocityVector() / SetVelocityDivisor();
         
@@ -35,5 +41,13 @@ namespace Agario.GamePlay.Controller
         }
 
         private float SetVelocityDivisor() => localScore.Value * speedScale;
+
+        private Vector3 ClampPosition(Vector3 position, int threshold)
+            => new (Clamp(position.x, threshold), 
+                    Clamp(position.y, threshold), 
+                    0);
+         
+        private float Clamp(float value, int threshold) 
+            => Mathf.Clamp(value, threshold * -1, threshold);
     }
 }
