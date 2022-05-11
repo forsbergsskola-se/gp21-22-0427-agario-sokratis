@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 namespace Agario.GamePlay.Camera
 {
@@ -8,8 +7,6 @@ namespace Agario.GamePlay.Camera
         [SerializeField] private Vector3 offset;
 
         private void Update()
-        {
-            transform.position = target.position + offset;
-        }
+            =>  transform.position = target.position + offset;
     }
 }
