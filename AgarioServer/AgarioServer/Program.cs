@@ -2,7 +2,8 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using Agario.Network.Structs;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace AgarioServer
 {
@@ -20,6 +21,8 @@ namespace AgarioServer
                 var data = udpClient.Receive(ref sender);
                 
                 Console.WriteLine(udpClient + "connected. Message: " + Encoding.ASCII.GetString(data));
+                
+                
             }
         }
     }
