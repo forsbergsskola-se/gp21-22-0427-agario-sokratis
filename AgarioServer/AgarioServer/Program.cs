@@ -2,13 +2,14 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using Agario.Network.Structs;
 
 namespace AgarioServer
 {
     internal class Program
     {
         public static void Main()
-        {
+        { 
             var endPoint = new IPEndPoint(IPAddress.Any, 44444);
             var udpClient = new UdpClient(endPoint);
             Console.WriteLine("Server is running");
