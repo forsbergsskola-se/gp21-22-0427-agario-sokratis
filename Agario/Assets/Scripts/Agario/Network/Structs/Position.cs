@@ -1,4 +1,4 @@
-namespace Agario.Network.Structs
+namespace Assets.Scripts.Agario.Network.Structs
 {
     public struct Position
     {
