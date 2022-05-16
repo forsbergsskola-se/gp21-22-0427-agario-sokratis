@@ -1,8 +1,8 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using Agario.Network.Structs;
 using Agario.ScriptableObjects;
-using Assets.Scripts.Agario.Network.Structs;
 using UnityEngine;
 
 namespace Agario.GamePlay.Controller
