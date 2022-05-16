@@ -28,3 +28,16 @@ C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\bin\Debug\Syst
 C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\bin\Debug\System.Text.Json.xml
 C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\bin\Debug\System.ValueTuple.xml
+C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\bin\Debug\System.Data.Common.dll
+C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\bin\Debug\System.Diagnostics.StackTrace.dll
+C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\bin\Debug\System.Diagnostics.Tracing.dll
+C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\bin\Debug\System.Globalization.Extensions.dll
+C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\bin\Debug\System.IO.Compression.dll
+C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\bin\Debug\System.Net.Http.dll
+C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\bin\Debug\System.Net.Sockets.dll
+C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\bin\Debug\System.Runtime.Serialization.Primitives.dll
+C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\bin\Debug\System.Security.Cryptography.Algorithms.dll
+C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\bin\Debug\System.Security.SecureString.dll
+C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\bin\Debug\System.Threading.Overlapped.dll
+C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\bin\Debug\System.Xml.XPath.XDocument.dll
+C:\Project\gp21-22-0427-agario-sokratis\AgarioServer\AgarioServer\obj\Debug\AgarioServer.exe.config
