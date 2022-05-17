@@ -3,8 +3,6 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
-using Agario.Network.Structs;
-
 
 namespace AgarioServer
 {
@@ -20,14 +18,17 @@ namespace AgarioServer
             {
                 var sender = new IPEndPoint(IPAddress.Any, 0);
                 var data = udpClient.Receive(ref sender);
+                var stringData = Encoding.ASCII.GetString(data);
                 
-                Console.WriteLine(udpClient.Client + " connected. Message: " + Encoding.ASCII.GetString(data));
+                Console.WriteLine(udpClient.Client + " connected. Message: " + stringData);
 
-                var position = new Position();
+                var position = new RandomVector3(int.Parse(stringData));
                 var response = JsonSerializer.Serialize(position);
                 var dataToSend = Encoding.ASCII.GetBytes(response);
                 
-                udpClient.Send(dataToSend, dataToSend.Length);
+                udpClient.Send(dataToSend, dataToSend.Length, sender);
+                
+                Console.WriteLine("Data sent: " + response);
             }
         }
     }
