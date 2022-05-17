@@ -14,7 +14,7 @@ namespace AgarioServer
 
             x = random.Next(range * -1, range);
             y = random.Next(range * -1, range);
-            z = random.Next(range * -1, range);
+            z = 0;
         }
     }
 }
