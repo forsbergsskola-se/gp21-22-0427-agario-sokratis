@@ -46,6 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ipAddress: 127.0.0.1
   port: 44444
-  waitTime: 0
+  waitTime: 0.5
   localPlayer: {fileID: 0}
-  localScore: {fileID: 0}
+  localScore: {fileID: 11400000, guid: 91d9dd8a99e642a4f94a07ab0aa685f4, type: 2}
