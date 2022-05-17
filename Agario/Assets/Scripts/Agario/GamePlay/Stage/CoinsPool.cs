@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Agario.Network;
 using Agario.ScriptableObjects;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Agario.GamePlay.Stage
 {
@@ -13,28 +13,39 @@ namespace Agario.GamePlay.Stage
         [SerializeField] private int size;
         [SerializeField] private float timer;
 
+        [Header("Network")] 
+        [SerializeField] private string ipAddress;
+        [SerializeField] private int port;
+        
         [Header("Dependencies")]
         [SerializeField] private IntValue stageSize;
         
-        private Queue<GameObject> pool;
+        private Queue<GameObject> _pool;
+        private Requester _requester;
 
         private void Awake()
         {
-            pool = new Queue<GameObject>();
-            FillPool();  
-        } 
+            LoadClass();
+            FillPool();
+        }
 
         private void Start() => StartCoroutine(SpawnCoin());
-        
+
         private IEnumerator SpawnCoin()
         {
-            var item = pool.Dequeue();
+            var item = _pool.Dequeue();
             item.SetActive(true);
-            item.transform.position = SetRandomPosition(stageSize.Value);
-            pool.Enqueue(item);
+            item.transform.position = _requester.ServerPosition(stageSize.Value);
+            _pool.Enqueue(item);
             
             yield return new WaitForSeconds(timer);
             StartCoroutine(SpawnCoin());
+        }
+
+        private void LoadClass()
+        {
+            _pool = new Queue<GameObject>();
+            _requester = new Requester(ipAddress, port);
         }
 
         private void FillPool()
@@ -43,13 +54,8 @@ namespace Agario.GamePlay.Stage
             {
                 var temp = Instantiate(coin, this.transform);
                 temp.SetActive(false);
-                pool.Enqueue(temp); 
+                _pool.Enqueue(temp); 
             }
         }
-        
-        private Vector3 SetRandomPosition(int threshold) 
-            => new (Random.Range(stageSize.Value * -1, stageSize.Value), 
-                    Random.Range(stageSize.Value * -1, stageSize.Value), 
-                    0);
     }
 }
