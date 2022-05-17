@@ -1,7 +1,7 @@
+using System;
+using Agario.Network;
 using Agario.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UIElements;
 
 namespace Agario.GamePlay.Controller
 {
@@ -9,16 +9,24 @@ namespace Agario.GamePlay.Controller
     {
         [Header("Dependencies")]
         [SerializeField] private PlayerStats playerStats;
-        [SerializeField] private IntValue localScore;
         [SerializeField] private Rigidbody2D localPlayer;
         [SerializeField] private IntValue stageSize;
 
+        [Header("Network")] 
+        [SerializeField] private NetworkSetup nwSetup;
+        
         [Header("Key Binding")] 
         [SerializeField] private char up;
         [SerializeField] private char down;
         [SerializeField] private char left;
         [SerializeField] private char right;
-       
+
+        private Requester requester;
+        
+        private void Awake() => requester = new Requester(nwSetup);
+
+        private void Start() => localPlayer.transform.position = requester.ServerPosition(stageSize.Value);
+        
         private void FixedUpdate()
         {
             localPlayer.velocity = SetVelocity();

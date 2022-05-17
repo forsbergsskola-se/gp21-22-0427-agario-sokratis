@@ -45,7 +45,7 @@ namespace Agario.GamePlay.Stage
         private void LoadClass()
         {
             _pool = new Queue<GameObject>();
-            _requester = new Requester(nwSetup.IpAddress, nwSetup.Port);
+            _requester = new Requester(nwSetup);
         }
 
         private void FillPool()
