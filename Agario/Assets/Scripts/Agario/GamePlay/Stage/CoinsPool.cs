@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Agario.Network;
 using Agario.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Agario.GamePlay.Stage
 {
@@ -14,9 +15,8 @@ namespace Agario.GamePlay.Stage
         [SerializeField] private float timer;
 
         [Header("Network")] 
-        [SerializeField] private string ipAddress;
-        [SerializeField] private int port;
-        
+        [SerializeField] private NetworkSetup nwSetup;
+       
         [Header("Dependencies")]
         [SerializeField] private IntValue stageSize;
         
@@ -45,7 +45,7 @@ namespace Agario.GamePlay.Stage
         private void LoadClass()
         {
             _pool = new Queue<GameObject>();
-            _requester = new Requester(ipAddress, port);
+            _requester = new Requester(nwSetup.IpAddress, nwSetup.Port);
         }
 
         private void FillPool()

@@ -1,14 +1,17 @@
+using Agario.Interfaces;
 using Agario.Network;
 using Agario.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Agario.GamePlay.Controller
 {
     public class RemoteController : MonoBehaviour
     {
+        [FormerlySerializedAs("setup")]
         [Header("Network")] 
-        [SerializeField] private string ipAddress;
-        [SerializeField] private int port;
+        [SerializeField] private NetworkSetup nwSetup;
+        
 
         [Header("Controller")] 
         [SerializeField] private float speed;
@@ -21,7 +24,7 @@ namespace Agario.GamePlay.Controller
         private Requester requester;
         private Vector3 target;
 
-        private void Awake() => requester = new Requester(ipAddress, port);
+        private void Awake() => requester = new Requester(nwSetup.IpAddress, nwSetup.Port);
         
         private void Start() => target = requester.ServerPosition(stageSize.Value);
 

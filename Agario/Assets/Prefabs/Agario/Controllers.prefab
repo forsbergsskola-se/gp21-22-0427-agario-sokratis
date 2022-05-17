@@ -65,8 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e91d1696cc7004c8a74992952e438b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ipAddress: 127.0.0.1
-  port: 44444
+  setup: {fileID: 11400000, guid: 9de4a70b9def7e546a54284529c32800, type: 2}
   speed: 0.001
   distance: 0.1
   drone: {fileID: 0}
