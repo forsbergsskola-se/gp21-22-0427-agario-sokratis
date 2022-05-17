@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Agario.Network;
 using Agario.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Agario.GamePlay.Stage
 {
@@ -20,8 +19,8 @@ namespace Agario.GamePlay.Stage
         [Header("Dependencies")]
         [SerializeField] private IntValue stageSize;
         
-        private Queue<GameObject> _pool;
-        private Requester _requester;
+        private Queue<GameObject> pool;
+        private Requester requester;
 
         private void Awake()
         {
@@ -33,10 +32,10 @@ namespace Agario.GamePlay.Stage
 
         private IEnumerator SpawnCoin()
         {
-            var item = _pool.Dequeue();
+            var item = pool.Dequeue();
             item.SetActive(true);
-            item.transform.position = _requester.ServerPosition(stageSize.Value);
-            _pool.Enqueue(item);
+            item.transform.position = requester.ServerPosition(stageSize.Value);
+            pool.Enqueue(item);
             
             yield return new WaitForSeconds(timer);
             StartCoroutine(SpawnCoin());
@@ -44,17 +43,17 @@ namespace Agario.GamePlay.Stage
 
         private void LoadClass()
         {
-            _pool = new Queue<GameObject>();
-            _requester = new Requester(nwSetup);
+            pool = new Queue<GameObject>();
+            requester = new Requester(nwSetup);
         }
 
         private void FillPool()
         {
             for (int i = 0; i < size; i++)
             {
-                var temp = Instantiate(coin, this.transform);
+                var temp = Instantiate(coin, transform);
                 temp.SetActive(false);
-                _pool.Enqueue(temp); 
+                pool.Enqueue(temp); 
             }
         }
     }

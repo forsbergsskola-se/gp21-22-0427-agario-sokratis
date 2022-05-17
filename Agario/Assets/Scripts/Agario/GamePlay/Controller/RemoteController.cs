@@ -9,7 +9,6 @@ namespace Agario.GamePlay.Controller
         [Header("Network")] 
         [SerializeField] private NetworkSetup nwSetup;
         
-
         [Header("Controller")] 
         [SerializeField] private float speed;
         [SerializeField] private float distance;
