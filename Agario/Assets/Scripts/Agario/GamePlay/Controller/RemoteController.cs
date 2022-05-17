@@ -9,6 +9,10 @@ namespace Agario.GamePlay.Controller
         [Header("Network")] 
         [SerializeField] private string ipAddress;
         [SerializeField] private int port;
+
+        [Header("Controller")] 
+        [SerializeField] private float speed;
+        [SerializeField] private float distance;
         
         [Header("Dependencies")]
         [SerializeField] private Transform drone;
@@ -21,5 +25,12 @@ namespace Agario.GamePlay.Controller
         
         private void Start() => target = requester.ServerPosition(stageSize.Value);
 
+        private void Update()
+        {
+            if (Vector3.Distance(drone.position, target) < distance)
+                target = requester.ServerPosition(stageSize.Value);
+            else 
+                drone.position = Vector3.MoveTowards(drone.position, target, speed);
+        }
     }
 }

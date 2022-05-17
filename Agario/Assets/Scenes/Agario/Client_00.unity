@@ -587,6 +587,14 @@ PrefabInstance:
       propertyPath: drone
       value: 
       objectReference: {fileID: 69546591}
+    - target: {fileID: 365668997678442021, guid: 1f351f01ed569d040903ef04acbeb6b7, type: 3}
+      propertyPath: speed
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 365668997678442021, guid: 1f351f01ed569d040903ef04acbeb6b7, type: 3}
+      propertyPath: distance
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8232097795397953876, guid: 1f351f01ed569d040903ef04acbeb6b7, type: 3}
       propertyPath: m_RootOrder
       value: 0
